@@ -19,6 +19,7 @@
 1. [Introduce](#introduce)
 2. [Requirements](#requirements)
 3. [How To Use](#how-to-use)
+4. [How To Use in Unity](#how-to-use-unity)
 
 # Introduce
 
@@ -50,3 +51,10 @@ public string checksum = ""; 는 절대로 수정 및 삭제 하지 마십시오
 LegitGameDataManager.ApplyChange(gameData, (data) => {}); 형식이며 중괄호 { } 안에 데이터를 변경하는 코드를 넣으면 됩니다. 예를들어. gameData.PlayerData.PlayerNick = "Mercel04"; 이렇게요.
 
 **중요 : 무조건 게임 데이터를 조작할 경우 gameData = SaveLoadSystem.LoadGameData();를 Awake()또는 Start()에 넣어야 합니다.**
+
+# How To Use in Unity
+이제 Unity로 돌아갑시다.
+스크립트 폴더를 만들어서 antiCheat와 Data를 그대로 넣어 컴파일 해줍니다. 스크립트 폴더는 선택으로 만드시면 됩니다.
+
+Hierarchy에서 새로운 빈 오브젝트를 만듭니다. 이 오브젝트는 무결성 모듈의 매니저가 됩니다.
+<img width="248" height="55" alt="Image" src="https://github.com/user-attachments/assets/b247f0ee-a4bd-45e2-b372-1e3ef1c1d463" />

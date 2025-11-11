@@ -3,7 +3,6 @@ using UnityEngine;
 public static class LegitGameDataManager
 {
     public static void ApplyChange(GameData data, System.Action<GameData> changeAction)
-    // GameData is GameData. System.Action<GameData> means a function without a return value.
     {
         // 1. Validation
         if (data == null || changeAction == null)
@@ -16,7 +15,12 @@ public static class LegitGameDataManager
         SaveLoadSystem.SaveGameData(data);
 
         // 4. Update checksum
-        var checker = GameObject.FindObjectOfType<RealtimeDataChecker>();
+#if UNITY_2023_1_OR_NEWER
+        var checker = Object.FindFirstObjectByType<RealtimeDataChecker>();
+#else
+        var checker = Object.FindObjectOfType<RealtimeDataChecker>();
+#endif
+
         if (checker != null)
         {
             checker.UpdateChecksum(data);
