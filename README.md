@@ -18,6 +18,7 @@
 
 1. [Introduce](#introduce)
 2. [Requirements](#requirements)
+3. [How To Use](#how-to-use)
 
 # Introduce
 
@@ -29,3 +30,5 @@ Designed with flexibility in mind, the module can be seamlessly integrated into 
 - Unity 2020.3 LTS or Over
 - Works only with C# scripts
 - Supports Windows/Mac platforms
+
+# How To Use
