@@ -32,3 +32,11 @@ Designed with flexibility in mind, the module can be seamlessly integrated into 
 - Supports Windows/Mac platforms
 
 # How To Use
+사용하기 전 DATA/SaveLoadSystem에서 Key와 IV key를 16바이트로 즉시 수정하십시오.
+SaveLoadSystem에서 "/data.json"에 이름을 변경할 수 있습니다. 단 확장자는 변경하지 마십시오.
+
+DATA/gameData.cs에서 자신의 등록할 데이터를 지정하십시오.
+일반적인 JSON저장 방식과 비슷합니다.
+public string checksum = ""; 는 절대로 수정 및 삭제 하지 마십시오.
+
+
