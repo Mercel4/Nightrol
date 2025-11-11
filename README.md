@@ -57,4 +57,21 @@ LegitGameDataManager.ApplyChange(gameData, (data) => {}); 형식이며 중괄호
 스크립트 폴더를 만들어서 antiCheat와 Data를 그대로 넣어 컴파일 해줍니다. 스크립트 폴더는 선택으로 만드시면 됩니다.
 
 Hierarchy에서 새로운 빈 오브젝트를 만듭니다. 이 오브젝트는 무결성 모듈의 매니저가 됩니다.
+
 <img width="248" height="55" alt="Image" src="https://github.com/user-attachments/assets/b247f0ee-a4bd-45e2-b372-1e3ef1c1d463" />
+
+자식 오브젝트를 추가합니다. 하나는 매번 무결성모듈을 실행하여 검사하는것, 나머지 하나는 변조가 감지되면 즉시 변조씬으로 이동하는 로직이 담긴 오브젝트 입니다.
+**해당 사진은 예시이며, 오브젝트의 이름은 언제나 변경하여도 무관합니다.**
+
+사진 기준, infoUI오브젝트에는 infoUI.cs를 컴포넌트에 추가합니다.
+
+사진 기준, realTimeCheakAntiCheatManager오브젝트에는 RealtimeDataChecker.cs를 컴포넌트에 추가합니다.
+
+이러면, 80%는 도달했습니다. 이제 변조가 감지되었을때 해당 씬으로 넘어가게 하면 끝입니다.
+Scene/Nightrol.unity를 Project에 넣습니다.
+하지만 불러올 경우, Hierarchy에서 Canvas/Image가 Missing이 되어 흰색화면이 노출 될 것입니다.
+
+**이는 정상적인 작동이며, 이미지를 추가하면 됩니다. 이미지를 추가할때 유의 사항은 맨 아래 라이선스 탭에서 확인하십시오.**
+
+<img width="3840" height="2160" alt="Image" src="https://github.com/user-attachments/assets/cf53c786-ce56-4ca3-b589-ff90f4981175" />
+이미지 예시
