@@ -19,7 +19,7 @@
 1. [Introduce](#introduce)
 2. [Requirements](#requirements)
 3. [How To Use](#how-to-use)
-4. [How To Use in Unity](#how-to-use-unity)
+4. [How To Use in Unity](#how-to-use-in-unity)
 
 # Introduce
 
@@ -74,4 +74,6 @@ Scene/Nightrol.unity를 Project에 넣습니다.
 **이는 정상적인 작동이며, 이미지를 추가하면 됩니다. 이미지를 추가할때 유의 사항은 맨 아래 라이선스 탭에서 확인하십시오.**
 
 <img width="3840" height="2160" alt="Image" src="https://github.com/user-attachments/assets/cf53c786-ce56-4ca3-b589-ff90f4981175" />
-이미지 예시
+이미지 예시. 데이터는 초기화 되는 로직은 리포지토리에 있으나, esc키를 누루면 자동으로 게임이 종료되는 로직은 직접 입력해야 합니다.
+
+**놀랍지만, 이게 전부입니다. 모든 로직이 정상작동 할 것입니다.**
