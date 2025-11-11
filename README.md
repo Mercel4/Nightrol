@@ -1,2 +1,2 @@
 # Nightrol
-This integrity module was independently developed by POTENTIAL PROJECT™. Please ensure that you read the README.md before using it
+<img src="https://capsule-render.vercel.app/api?type=waving&color=auto&height=180&text=Announcement&animation=fadeIn&fontColor=232323&fontSize=70" />
