@@ -32,7 +32,7 @@ Designed with flexibility in mind, the module can be seamlessly integrated into 
 # Requirements
 - Unity 2020.3 LTS or Over
 - Works only with C# scripts
-- Supports Windows/Mac platforms
+- Supports Windows, Mac, iOS, Android platforms
 
 # How To Use
 Before use, immediately modify the Key and IV keys to 16 bytes in DATA/SaveLoadSystem.
