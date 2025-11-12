@@ -20,6 +20,8 @@
 2. [Requirements](#requirements)
 3. [How To Use](#how-to-use)
 4. [How To Use in Unity](#how-to-use-in-unity)
+5. [Nightrol™ Integrity Module End-User License Agreement (EULA)](#nightrol™-integrity-module-end-user-license-agreement(EULA))
+
 
 # Introduce
 
@@ -33,47 +35,144 @@ Designed with flexibility in mind, the module can be seamlessly integrated into 
 - Supports Windows/Mac platforms
 
 # How To Use
-사용하기 전 DATA/SaveLoadSystem에서 Key와 IV key를 16바이트로 즉시 수정하십시오.
-SaveLoadSystem에서 "/data.json"에 이름을 변경할 수 있습니다. 단 확장자는 변경하지 마십시오.
+Before use, immediately modify the Key and IV keys to 16 bytes in DATA/SaveLoadSystem.
+You can rename the file to "/data.json" in SaveLoadSystem, but do not change the extension.
 
 <img width="1072" height="314" alt="Image" src="https://github.com/user-attachments/assets/a787a266-7c01-412f-abbe-5e000e436afa" />
 
-DATA/gameData.cs에서 자신의 등록할 데이터를 지정하십시오.
-일반적인 JSON저장 방식과 비슷합니다.
-public string checksum = ""; 는 절대로 수정 및 삭제 하지 마십시오.
+Specify your own registered data in DATA/gameData.cs.
+It's similar to the standard JSON storage method.
+Never modify or delete public string checksum = "";
 
 <img width="733" height="284" alt="Image" src="https://github.com/user-attachments/assets/b43f67e5-86bb-4b6c-92e3-49ec6e3dfd2d" />
 
-데이터를 gameData.PlayerData.PlayerNick = "Mercel04"와 같이 변경을 하면 합법적인 변경임에 불구하고 무결성 모듈에 걸리게 됩니다. 이를 해결하기 위해서 우리는 하나의 예외 처리를 해야합니다. 다행이 antiCheat/LegitGameDataManager.cs에 예외 처리를 위한 클래스가 마련되여 있습니다. 다음 사진과 같은 양식으로 적으시면 됩니다.
+Changing data like gameData.PlayerData.PlayerNick = "Mercel04" will cause the integrity module to fail, even though it's a legitimate change. To resolve this, we need to handle an exception. Fortunately, antiCheat/LegitGameDataManager.cs provides a class for exception handling. Simply write it in the format shown below.
 
 <img width="409" height="196" alt="Image" src="https://github.com/user-attachments/assets/352661d8-3581-4e11-a6fc-a5a57fd10f8d" />
 
-LegitGameDataManager.ApplyChange(gameData, (data) => {}); 형식이며 중괄호 { } 안에 데이터를 변경하는 코드를 넣으면 됩니다. 예를들어. gameData.PlayerData.PlayerNick = "Mercel04"; 이렇게요.
+The format is LegitGameDataManager.ApplyChange(gameData, (data) => {}); and you can put the code that changes the data inside the curly brackets { }. For example, gameData.PlayerData.PlayerNick = "Mercel04";
 
 **중요 : 무조건 게임 데이터를 조작할 경우 gameData = SaveLoadSystem.LoadGameData();를 Awake()또는 Start()에 넣어야 합니다.**
 
 # How To Use in Unity
-이제 Unity로 돌아갑시다.
-스크립트 폴더를 만들어서 antiCheat와 Data를 그대로 넣어 컴파일 해줍니다. 스크립트 폴더는 선택으로 만드시면 됩니다.
+Now, let's go back to Unity.
+Create a script folder and place AntiCheat and Data there to compile. You can create the script folder by selecting it.
 
-Hierarchy에서 새로운 빈 오브젝트를 만듭니다. 이 오브젝트는 무결성 모듈의 매니저가 됩니다.
+Create a new empty object in the Hierarchy. This object will be the manager of the Integrity module.
 
 <img width="248" height="55" alt="Image" src="https://github.com/user-attachments/assets/b247f0ee-a4bd-45e2-b372-1e3ef1c1d463" />
 
-자식 오브젝트를 추가합니다. 하나는 매번 무결성모듈을 실행하여 검사하는것, 나머지 하나는 변조가 감지되면 즉시 변조씬으로 이동하는 로직이 담긴 오브젝트 입니다.
-**해당 사진은 예시이며, 오브젝트의 이름은 언제나 변경하여도 무관합니다.**
+Add child objects. One object will run the integrity module every time to check for tampering, and the other will contain logic that will immediately jump to the tampering scene if tampering is detected. **This image is an example; you can change the object names at any time.**
 
-사진 기준, infoUI오브젝트에는 infoUI.cs를 컴포넌트에 추가합니다.
+Based on the photo, add infoUI.cs to the component in the infoUI object.
 
-사진 기준, realTimeCheakAntiCheatManager오브젝트에는 RealtimeDataChecker.cs를 컴포넌트에 추가합니다.
+This should get you 80% of the way there. Now, all you need to do is jump to the relevant scene when tampering is detected.
+Place Scene/Nightrol.unity into your project.
+However, when you load it, the Canvas/Image will be missing from the Hierarchy, resulting in a white screen.
 
-이러면, 80%는 도달했습니다. 이제 변조가 감지되었을때 해당 씬으로 넘어가게 하면 끝입니다.
-Scene/Nightrol.unity를 Project에 넣습니다.
-하지만 불러올 경우, Hierarchy에서 Canvas/Image가 Missing이 되어 흰색화면이 노출 될 것입니다.
-
-**이는 정상적인 작동이며, 이미지를 추가하면 됩니다. 이미지를 추가할때 유의 사항은 맨 아래 라이선스 탭에서 확인하십시오.**
+**This is normal operation, and you can simply add the image. Please check the License tab at the bottom for any additional information when adding images.**
 
 <img width="3840" height="2160" alt="Image" src="https://github.com/user-attachments/assets/cf53c786-ce56-4ca3-b589-ff90f4981175" />
-이미지 예시. 데이터는 초기화 되는 로직은 리포지토리에 있으나, esc키를 누루면 자동으로 게임이 종료되는 로직은 직접 입력해야 합니다.
+Image example. The data initialization logic is in the repository, but the logic for automatically ending the game when the ESC key is pressed must be manually implemented.
 
-**놀랍지만, 이게 전부입니다. 모든 로직이 정상작동 할 것입니다.**
+**Surprisingly, that's all there is to it. All logic will work as expected.**
+
+# Nightrol™ Integrity Module End-User License Agreement (EULA)
+
+You can download the EULA as a .pdf by clicking the Download button at the top.
+
+**Please read before use.**
+
+**Version 1.2 – Last Updated: November 2025**  
+**Copyright © POTENTIAL PROJECT™**
+
+---
+
+## Article 1 (Purpose)
+This End-User License Agreement (hereinafter “Agreement”) is a legal contract between **POTENTIAL PROJECT™** (hereinafter “Licensor”) and any individual or entity using this software (hereinafter “User”).  
+It defines the terms under which the **Nightrol™ Integrity Module** (hereinafter “Software”) may be used.  
+
+By downloading, installing, or using the Software, the User is deemed to have agreed to all terms of this Agreement.  
+If you do not agree, do not install or use the Software.
+
+---
+
+## Article 2 (Grant of License)
+1. Licensor grants the User a **non-exclusive**, **non-transferable**, **revocable**, royalty-free license to use the Software.  
+2. The User may use the Software in both commercial and non-commercial projects.  
+3. The following conditions must be observed:  
+   - The project or game must clearly credit **“POTENTIAL PROJECT™”** in at least one of the following: credits, introduction screen, or documentation.  
+   - The Software may not be redistributed or sold independently.  
+   - Including the Software in a commercial project is allowed, provided proper attribution is given (e.g., “Integrity Module by POTENTIAL PROJECT™”).  
+   - Ownership or trademark rights of the Software are **not transferred** to the User.
+
+---
+
+## Article 3 (Restrictions)
+The User may not:  
+1. Remove or modify copyright or trademark notices.  
+2. Change the name of the infoUI object from **“Nightrol™”**.  
+   - Any renaming requires prior **written permission** from POTENTIAL PROJECT™.  
+3. Replace the infoUI logo; it must use the **Nightrol™ logo**.  
+   - Logo changes require prior **written permission**.  
+4. Use the Software for illegal, malicious, or unethical purposes (e.g., data tampering, unauthorized access, cheating).  
+5. Sell, lease, redistribute, or relicence the Software as a standalone product.
+
+---
+
+## Article 4 (Ownership)
+All rights, title, and intellectual property rights in the Software remain with **POTENTIAL PROJECT™**.  
+The User only obtains a license to use the Software under this Agreement.  
+The Software and its materials are protected by international copyright and intellectual property laws.
+
+---
+
+## Article 5 (Attribution)
+All projects using this Software must credit **POTENTIAL PROJECT™** in at least one of the following ways:  
+- Game credits (e.g., “Integrity Module by POTENTIAL PROJECT™”)  
+- In-game information screen (About / Info UI)  
+- Official website or documentation  
+
+Failure to provide attribution may result in immediate termination of this license.
+
+---
+
+## Article 6 (Disclaimer of Warranty)
+The Software is provided **“AS IS”**.  
+The Licensor makes no express or implied warranties regarding the Software’s completeness, reliability, security, or fitness for a particular purpose.  
+The User assumes all risks arising from use of the Software.
+
+---
+
+## Article 7 (Limitation of Liability)
+The Licensor shall not be liable for any loss of data, system failure, financial damage, or indirect or consequential damages arising from use or inability to use the Software under any circumstances.
+
+---
+
+## Article 8 (Termination)
+This Agreement remains valid while the User uses the Software.  
+Violation of any terms allows POTENTIAL PROJECT™ to terminate this Agreement immediately.  
+Upon termination, the User must immediately delete all copies of the Software.
+
+---
+
+## Article 9 (Governing Law)
+This Agreement shall be governed by the laws of the **Republic of Korea**.  
+In case of disputes, the **Seoul Central District Court** shall have exclusive jurisdiction.
+
+---
+
+## Article 10 (Contact)
+For permissions, commercial inquiries, or requests to rename/change the infoUI object or logo, contact:  
+📧 **jaeminan944@icloud.com**  
+🌐 **https://github.com/Mercel4/Nightrol**
+
+---
+
+### Developer Summary
+- ✅ Commercial use allowed  
+- ✅ Must credit **“POTENTIAL PROJECT™”** in game or project  
+- ✅ infoUI object name is fixed as **Nightrol™** (changes require permission)  
+- ✅ infoUI logo is fixed as **Nightrol™ logo** (changes require permission)  
+- ❌ Redistribution/sale as standalone software prohibited  
+- ✅ Integration and modification within a Unity project allowed, but attribution must remain
