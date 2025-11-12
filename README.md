@@ -52,7 +52,7 @@ Changing data like gameData.PlayerData.PlayerNick = "Mercel04" will cause the in
 
 The format is LegitGameDataManager.ApplyChange(gameData, (data) => {}); and you can put the code that changes the data inside the curly brackets { }. For example, gameData.PlayerData.PlayerNick = "Mercel04";
 
-**중요 : 무조건 게임 데이터를 조작할 경우 gameData = SaveLoadSystem.LoadGameData();를 Awake()또는 Start()에 넣어야 합니다.**
+**Important: If you ever manipulate game data, you must put gameData = SaveLoadSystem.LoadGameData(); in Awake() or Start().**
 
 # How To Use in Unity
 Now, let's go back to Unity.
