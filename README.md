@@ -9,7 +9,7 @@
   <a href="#demo">
     <img src="https://img.shields.io/badge/DOWNLOAD%20EULA%20-%234FC08D.svg?&style=for-the-badge&&logoColor=white"/>
   </a>
-  <a href="">
+  <a href="https://buymeacoffee.com/mercel4">
     <img src="https://img.shields.io/badge/DONATE%20-%235c86fa.svg?&style=for-the-badge&&logoColor=white"/>
   </a>
 </p> 
