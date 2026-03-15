@@ -1,6 +1,6 @@
 using UnityEngine;
 
-using GamePlay.Utility.Nightrol;
+using Utility.Nightrol;
 
 public class test : MonoBehaviour
 {

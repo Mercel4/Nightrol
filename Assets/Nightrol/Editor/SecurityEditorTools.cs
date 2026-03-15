@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEditor;
 using System.IO;
 
-namespace GamePlay.Utility.Nightrol
+namespace Utility.Nightrol
 {
     public class SecurityEditorTools
     {

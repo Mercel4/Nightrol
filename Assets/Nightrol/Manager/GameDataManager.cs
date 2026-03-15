@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace GamePlay.Utility.Nightrol
+namespace Utility.Nightrol
 {
     public class GameDataManager : MonoBehaviour
     {

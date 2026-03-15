@@ -1,7 +1,7 @@
 using System.IO;
 using UnityEngine;
 
-using GamePlay.Utility.Nightrol;
+using Utility.Nightrol;
 
 public static class SaveLoadSystem
 {
